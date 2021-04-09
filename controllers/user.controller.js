@@ -51,7 +51,25 @@ exports.getUserById=function(request,response){
         if(docs){
             response.send(docs)
         }else{
-            response.send({message:"User"+s_id+"not found!"});
+            response.send({message:"User "+s_id+" not found!"});
+        }
+    })
+}
+
+exports.deleteUser=function(request,response){
+    var s_id= request.params.s_id;
+    userModel.deleteOne({s_id:s_id},function(err,docs){
+        if(err){
+            response.send({error:err.message,message:"hello"});
+            return;
+        }
+        if(docs){
+            if(docs.deletedCount<=0){
+                response.send({message:"User "+s_id+" not found!"})
+            }else{
+                response.send({message:"User "+s_id+" deleted successfully!"})
+            }
+            
         }
     })
 }

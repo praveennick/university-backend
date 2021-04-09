@@ -15,4 +15,7 @@ userRouter.get('/allUsers',userController.getAllUsers);
 //http://localhost:9545/getUserById/
 userRouter.get('/getUserById/:s_id',userController.getUserById);
 
+//http://localhost:9545/deleteUser/
+userRouter.delete('/deleteUser/:s_id',userController.deleteUser);
+
 module.exports=userRouter;
