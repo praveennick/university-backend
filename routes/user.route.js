@@ -18,4 +18,7 @@ userRouter.get('/getUserById/:s_id',userController.getUserById);
 //http://localhost:9545/deleteUser/
 userRouter.delete('/deleteUser/:s_id',userController.deleteUser);
 
+//http://localhost:9545/updateUser/
+userRouter.put('/updateUser/:s_id',userController.updateUser);
+
 module.exports=userRouter;

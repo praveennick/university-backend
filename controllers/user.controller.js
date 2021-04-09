@@ -73,3 +73,30 @@ exports.deleteUser=function(request,response){
         }
     })
 }
+
+
+exports.updateUser=function(request,response){
+    var s_id=request.params.s_id;
+    var updatedUser=request.body;
+    console.log("request",request,request.body)
+
+    userModel.updateOne({s_id:s_id},updatedUser,function(err,docs){
+        if(err){
+            response.send({error:err.message})
+        }
+        if(docs){
+            if(docs.ok<=0){
+                response.send({message:"please check the syntax"});
+            }else
+            if(docs.n<=0){
+                response.send({message:"User "+s_id+" not found!!"})
+            }else
+            if(docs.nModified<=0){
+                response.send({message:"User "+s_id+" already updated!"});
+            }else
+            {
+                response.send({message:"User "+s_id+" updated successfully!"});
+            }
+        }
+    })
+}
