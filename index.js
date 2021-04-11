@@ -1,4 +1,5 @@
 var express = require('express');
+var cors= require('cors');
 var app = express();
 
 var DB= require('./configs/db.config');
@@ -10,6 +11,7 @@ DB.connect();
 
 
 app.use(express.json());
+app.use(cors());
 
 //app.use('/admin',userRouter);
 app.use(userRouter);
