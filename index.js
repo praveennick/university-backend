@@ -5,6 +5,7 @@ var app = express();
 var DB= require('./configs/db.config');
 var userRouter=require('./routes/user.route');
 
+const PORT = process.env.PORT || 9545;
 
 
 DB.connect();
@@ -30,6 +31,6 @@ app.get('/',(req,res)=>{
     
 })
 
-app.listen(9545,function(){
+app.listen(PORT,function(){
     console.log("Server started!")
 })
