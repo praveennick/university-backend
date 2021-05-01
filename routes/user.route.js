@@ -13,12 +13,15 @@ userRouter.post('/login',userController.loginUser);
 userRouter.get('/allUsers',userController.getAllUsers);
 
 //http://localhost:9545/getUserById/
-userRouter.get('/getUserById/:s_id',userController.getUserById);
+userRouter.get('/getUserById/:s_name',userController.getUserById);
+
+//http://localhost:9545/getUserByMailId/
+userRouter.get('/getUserById/:s_email',userController.getUserByMailId);
 
 //http://localhost:9545/deleteUser/
-userRouter.delete('/deleteUser/:s_id',userController.deleteUser);
+userRouter.delete('/deleteUser/:s_name',userController.deleteUser);
 
 //http://localhost:9545/updateUser/
-userRouter.put('/updateUser/:s_id',userController.updateUser);
+userRouter.put('/updateUser/:s_name',userController.updateUser);
 
 module.exports=userRouter;

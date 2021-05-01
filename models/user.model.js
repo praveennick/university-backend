@@ -4,14 +4,10 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema(
     {
-        s_id:{
-            type:Number,
-            required:true,
-            unique:true
-        },
         s_name:{
             type:String,
-            required:true
+            required:true,
+            unique:true
         },
         s_mobile:{
             type:Number,
@@ -30,7 +26,7 @@ var UserSchema = new Schema(
         },
         role: {
             type: String,
-            default: "ROLE_CUSTOMER",
+            default: "ROLE_USER",
         }
     }
 )
